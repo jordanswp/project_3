@@ -7,13 +7,21 @@
 </p>
 <% end %> 
 <table>
+<thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <% @listings.each do |listing| %>
     <tr>
       <td><%= listing.title %></td>
       <td><img src="<%= image_url listing.image_url %>"/></td>
       <td><%= listing.price %></td>
       <td><%= listing.description %></td>
-      <td><%= link_to 'Show', listing_path(listing) %></td>
+      <td><%= link_to 'Click for more details', listing_path(listing) %></td>
     </tr>
   <% end %>
 </table>

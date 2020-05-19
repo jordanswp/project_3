@@ -1,0 +1,24 @@
+<%= form_with scope: :listing, url: listings_path, local: true do |form| %>
+    <p>
+      <%= form.label :Title %>
+      <%= form.text_field :title %>
+    </p>
+    <p>
+      <%= form.label :Image %>
+      <%= form.text_area :image_url %>
+    </p>
+    <p>
+        <%= form.label :Price %>
+        <%= form.text_area :price %>
+    </p>
+    <p>
+        <%= form.label :Description %>
+        <%= form.text_area :description %>
+    </p>
+    <p>Select Category:</p>
+    <%= form.collection_select :category_id, @categories, :id, :name %>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+  <%= link_to 'Back', root_path %> 
