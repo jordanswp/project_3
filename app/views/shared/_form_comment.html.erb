@@ -1,0 +1,19 @@
+<%= form_with model: Comment.new, url: comments_path do |form| %>
+
+  <%= hidden_field_tag(:listing_id, @listing.id) %>
+
+  <div>
+    <%= form.label 'Title:' %><br>
+    <%= form.text_field :title, id: "commentTitle" %>
+  </div>
+  
+  <div>
+    <%= form.label 'Comment:' %><br>
+    <%= form.text_area :body, id: "commentBody" %>    
+  </div>
+
+  <div>
+    <%= form.submit 'Comment', id: "commentButton" %>
+  </div>
+
+<% end %>

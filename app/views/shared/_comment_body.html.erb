@@ -1,0 +1,7 @@
+<div>
+  <% @listing.comment.each do | comment | %>
+  <%= "Comment Title: #{comment.title}" %><br>
+  <%= "Comment Body: #{comment.body}" %><br>
+  <%= "Posted by: #{comment.user.username}" %><br><br>
+  <% end %>
+</div>
