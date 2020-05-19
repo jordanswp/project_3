@@ -1,4 +1,4 @@
-<%= form_with model: Comment.new, url: comments_path do |form| %>
+<%= form_with model: Comment.new, id: "commentForm", url: comments_path do |form| %>
 
   <%= hidden_field_tag(:listing_id, @listing.id) %>
 
@@ -13,7 +13,7 @@
   </div>
 
   <div>
-    <%= form.submit 'Comment', id: "commentButton" %>
+    <%= form.submit 'Comment' %>
   </div>
 
 <% end %>
