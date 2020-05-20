@@ -8,8 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
-  <body data-username="<%= current_user.username %>">
-    <%= yield %>
-  </body>
+  
+  <% if current_user %>
+    <body data-username="<%= current_user.username %>">
+      <%= yield %>
+    </body>
+  <% else %>
+    <body>
+      <%= yield %>
+    </body>
+  <% end %>
 </html>

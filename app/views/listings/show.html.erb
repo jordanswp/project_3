@@ -39,13 +39,15 @@
       <div class="listingDescriptionContainer">
         <h5>Description:</h5>
         <p><%= @listing.description %></p> 
+        <h5>Seller:</h5>
+        <p><%= @listing.user.username %></p>
       </div>
     </div>
 
     <div class="listingCommentContainer form-group col-10 col-sm-10 col-md-10 col-lg-7">
       <div class="cssCommentBody">
         <div class="commentHeading text-center"><h5>Comments</h5></div>
-        <div id="commentList"></div>
+        <div id="newCommentDiv"></div>
         <%= render '/shared/comment_body' %>
       </div>
       <%= render '/shared/form_comment' %>

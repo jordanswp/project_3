@@ -18,3 +18,16 @@
   padding: 1rem;
   border-radius: 0.5rem;
 }
+
+.cssNewComment {
+  background-color: #EBEDEF;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  animation: newReply 0.5s;
+}
+
+@keyframes newReply {
+  from {background-color: black;}
+  to {background-color: #EBEDEF;}
+}
