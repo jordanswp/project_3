@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
         # end
     end
     def new
+        @listing = Listing.new
         @categories = Category.all
     end
     def create
@@ -29,3 +30,5 @@ class ListingsController < ApplicationController
   end
 
 end
+
+

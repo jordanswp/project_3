@@ -11,9 +11,16 @@
 <p>
  Description: <%= @listing.description %>
 </p>
+<div>
+  <h1>Comment Section</h1>
+  <div id="commentList"></div>
+  <%= render '/shared/comment_body' %>
+  <%= render '/shared/form_comment' %>
+</div>
 <p>
  Category: <%= link_to @listing.category.name, listings_path%>
 </p>
 <p>
 <%= link_to 'Back To All Listings', listings_path %>
 </p> 
+
