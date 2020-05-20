@@ -13,21 +13,29 @@ $( document ).ready(function() {
   $('#commentForm').on('ajax:success', () => {
   console.log('button is clicked!');
 
-  const allComments = document.querySelector('#commentList');
+  const commentList = document.querySelector('#commentList');
   const commentTitle = document.querySelector('#commentTitle');
   const commentBody = document.querySelector('#commentBody');
+  const currentUser = document.body.getAttribute('data-username');
 
   const newestCommentTitle = document.createElement('p');
-  newestCommentTitle.innerText = `Comment Title: ${commentTitle.value}`;
+  newestCommentTitle.innerText = `${commentTitle.value}`;
   const newestCommentBody = document.createElement('p');
-  newestCommentBody.innerHTML = `Comment Body: ${commentBody.value}<br><br><br><br>`;
+  newestCommentBody.innerHTML = `${commentBody.value}`;
+  const newestCommentPoster = document.createElement('p');
+  newestCommentPoster.innerHTML = `Posted by: ${currentUser}`;
 
-  allComments.appendChild(newestCommentTitle)
-  allComments.appendChild(newestCommentBody)
+  commentList.classList.add('cssSingleComment');
+  newestCommentTitle.classList.add('cssSubheading')
+
+  commentList.appendChild(newestCommentTitle)
+  commentList.appendChild(newestCommentBody)
+  commentList.appendChild(newestCommentPoster)
 
   });
 
   console.log('eventListener is loaded')
 
 })
+
 
