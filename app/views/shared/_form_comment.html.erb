@@ -1,19 +1,17 @@
-<%= form_with model: Comment.new, id: "commentForm", url: comments_path do |form| %>
+<%= form_with model: Comment.new, id: "commentForm", url: comments_path, class: 'form-group' do |form| %>
 
   <%= hidden_field_tag(:listing_id, @listing.id) %>
 
   <div>
-    <%= form.label 'Title:' %><br>
-    <%= form.text_field :title, id: "commentTitle" %>
-  </div>
+    <%= form.text_field :title, id: "commentTitle", class: 'form-control', placeholder: 'Title' %>
+  </div><br>
   
   <div>
-    <%= form.label 'Comment:' %><br>
-    <%= form.text_area :body, id: "commentBody" %>    
-  </div>
+    <%= form.text_area :body, id: "commentBody", rows: '4', class: 'form-control', placeholder: 'Text' %>    
+  </div><br>
 
   <div>
-    <%= form.submit 'Comment' %>
+    <%= form.submit 'Comment', class: 'btn btn-dark' %>
   </div>
 
 <% end %>

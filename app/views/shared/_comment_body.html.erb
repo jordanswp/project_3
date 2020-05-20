@@ -1,7 +1,8 @@
-<div>
   <% @listing.comment.reverse_each do | comment | %>
-  <p><%= "Comment Title: #{comment.title}" %></p>
-  <p><%= "Comment Body: #{comment.body}" %></p>
-  <%= "Posted by: #{comment.user.username}" %><br><br><br><br>
+  <div class="cssSingleComment">
+    <div class="cssSubheading"><p><%= "#{comment.title}" %></p></div>
+    <p><%= "#{comment.body}" %></p>
+    <p><%= "Posted by: #{comment.user.username}" %></p>
+  </div>
   <% end %>
-</div>
+
