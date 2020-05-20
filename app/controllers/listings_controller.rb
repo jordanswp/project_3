@@ -1,31 +1,29 @@
 class ListingsController < ApplicationController
-
-  before_action :authenticate_user!
-
-  def show
-    @listing = Listing.find(params[:id])
-  end
-
-  def new
-    @listing = Listing.new
-  end
-
-  def create
-    @listing = Listing.new(listing_params)
-    @listing.user = current_user
-
-      if @listing.save
-        redirect_to @listing
-      else
-        render plain: @listing.errors.messages
+    before_action :authenticate_user!
+    def index
+        @categories = Category.all
+        @listings = Listing.all
     end
-  end
-
-private
-    def listing_params
-      params.require(:listing).permit(:title, :image_url, :price, :description, :user_id, :category_id)
+    def new
+        @listing = Listing.new
+        @categories = Category.all
     end
-
+    def create
+        @listing = Listing.new(listing_params)
+        @listing.user = current_user
+        if @listing.save
+            redirect_to @listing
+          else
+            render 'new'
+          end
+    end
+    def show
+        @listing = Listing.find(params[:id])
+    end
+    
+  def listing_params
+    params.require(:listing).permit(:title, :image_url, :price, :description, :category_id)
+  end
 
 end
 
