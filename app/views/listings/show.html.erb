@@ -1,0 +1,16 @@
+<h1>Show Listing</h1>
+<p>
+  Name: <%= @listing.title %>
+</p>
+<p>Image:
+<img src="<%= image_url @listing.image_url %>"/>
+</p>
+<p>
+ Price: <%= @listing.price %>
+</p>
+<p>
+ Description: <%= @listing.description %>
+</p>
+<p>
+<%= link_to 'Back To All Listings', listings_path %>
+</p> 
