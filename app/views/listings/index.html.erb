@@ -2,12 +2,9 @@
 <%= form_with scope: :category, url: listings_path, local: true do |form| %>
 <% @categories.each do |category| %>
     <tr>
-    <td><%= link_to category.name, listings_path(@listing) %></td>
+    <td><%= link_to category.name, listings_path(@listing,:category_id => category.id) %></td>
     </tr>
     <% end %> 
-<p>
-<%= form.submit "Sort Category"%>
-</p>
 <% end %> 
 <table>
 <thead>

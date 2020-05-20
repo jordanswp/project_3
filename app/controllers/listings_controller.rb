@@ -1,12 +1,12 @@
 class ListingsController < ApplicationController
     before_action :authenticate_user!
     def index
-        # if params.has_key?[:category_id]
-        #     @listings = Listing.where(category_id: params[:category_id])
-        # else
-            @categories = Category.all
+        @categories = Category.all
+        if params[:category_id].blank?
             @listings = Listing.all
-        # end
+        else
+            @listings = Listing.where(category_id: params[:category_id])
+        end
     end
     def new
         @listing = Listing.new
@@ -22,6 +22,7 @@ class ListingsController < ApplicationController
           end
     end
     def show
+        @category = Category.find(params[:id])
         @listing = Listing.find(params[:id])
     end
     
