@@ -5,6 +5,7 @@ class ListingsController < ApplicationController
         @listings = Listing.all
     end
     def new
+        @listing = Listing.new
         @categories = Category.all
     end
     def create
@@ -25,3 +26,5 @@ class ListingsController < ApplicationController
   end
 
 end
+
+
