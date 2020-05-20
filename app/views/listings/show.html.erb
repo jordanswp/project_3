@@ -12,5 +12,8 @@
  Description: <%= @listing.description %>
 </p>
 <p>
+ Category: <%= link_to @listing.category.name, listings_path%>
+</p>
+<p>
 <%= link_to 'Back To All Listings', listings_path %>
 </p> 
