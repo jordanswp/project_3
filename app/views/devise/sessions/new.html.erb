@@ -2,13 +2,13 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 
-      <div class="container col-sm-4" style="background: white; box-shadow: 0 0 50px grey; margin-top: 50px">
+      <div class="signInBox container col-sm-4" style="background: white; box-shadow: 0 0 50px grey; position: relative; top: 70px; margin-top: 50px; padding: 0 20px; border-radius: 5px">
         <div class="col">
 
               <div class="form-group" style="padding-top: 30px">
                   <div class="field" style="text-align: center">
                     <%= f.label :username, style:"font-family: Arial; font-size: 20px" %><br />
-                    <%= f.text_field :login, class: 'form-control',  placeholder: 'Username'%>
+                    <%= f.text_field :login, autofocus: true, class: 'form-control',  placeholder: 'Username'%>
                   </div>
               </div>
 
@@ -31,7 +31,7 @@
 
 
               <div class="actions">
-                <%= f.submit "Log in", class: 'btn btn-success', style:"padding-right:25px; padding-left:25px" %>
+                <%= f.submit "Log in", class: 'btn btn-secondary', style:"padding-right:25px; padding-left:25px" %>
               </div>
 
             <% end %>

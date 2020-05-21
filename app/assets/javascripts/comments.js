@@ -9,7 +9,6 @@ console.log('script is running');
 
 $( document ).ready(function() {
 
-
   $('#commentForm').on('ajax:success', () => {
   console.log('button is clicked!');
 
@@ -35,6 +34,7 @@ $( document ).ready(function() {
 
   newCommentDiv.appendChild(newestComment)
   //scroll to newest reply 
+  newestComment.classList.add('animate_fadeInUp')
   document.querySelector('#scroll').scrollIntoView();
 
   });

@@ -22,6 +22,7 @@
   max-height: 450px;
   overflow: auto;
   margin-top: -1rem;
+  margin-bottom: 0.5rem;
 }
 
 .commentFooter {
@@ -30,21 +31,37 @@
 }
 
 .cssSingleComment {
-  background-color: #EBEDEF;
+  background-color: white;
   margin: 1rem 0;
   padding: 1rem;
   border-radius: 0.5rem;
 }
 
 .cssNewComment {
-  background-color: #EBEDEF;
+  background-color: white;
   margin: 2rem 0;
   padding: 1rem;
   border-radius: 0.5rem;
-  animation: newReply 0.5s;
+  animation: fadeInUp 0.5s;
+  // animation: newReply 0.5s;
 }
+
+
+// animations
 
 @keyframes newReply {
   from {background-color: black;}
-  to {background-color: #EBEDEF;}
+  to {background-color: white;}
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }

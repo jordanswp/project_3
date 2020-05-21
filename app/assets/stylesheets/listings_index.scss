@@ -2,12 +2,16 @@ body {
   user-select: none;
 }
 
+.yieldContainer {
+  min-height: 90vh;
+}
+
 .itemList {
-  min-height: 800px;
+  background-color: white;
+  min-height: 90vh;
 }
 
 .card-img-top {
-
 }
 
 .categoryIcon {
@@ -15,11 +19,28 @@ body {
   top: 10px;
   right: 0px;
   font-size: 1rem;
+  font-weight: bold;
   font-style: italic;
   background-color: white;
+  box-shadow: 2px 2px 5px;
   border-radius: 0.1rem;
-  border: 1px solid lightgrey;
+  // border: 1px solid lightgrey;
   padding: 0.2rem;
   opacity: 0.8;
 }
 
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  transform: scale(1.05);
+}
+
+.card {
+  animation: fadeIn 0.5s;
+}

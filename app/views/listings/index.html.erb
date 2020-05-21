@@ -1,12 +1,12 @@
   
 
-<section class="itemList p-5 bg-light">
+<section class="itemList p-5">
   <div class="container">
     <h6 class="">Showing Category: <%= @current_category %></h6>
     <div class="row">
       <% @listings.each do |listing| %>
       <div class="col-6 col-md-3 mt-4 d-flex">
-        <div class="card list-item bg-white rounded overflow-hidden position-relative shadow-sm">
+        <div class="card list-item bg-white rounded overflow-hidden position-relative shadow hvr-grow">
           <!-- set condition for category icon to appear only in ALL category -->
           <% if @current_category == 'All' %>
             <span class="categoryIcon"><%= listing.category.name %></span>
@@ -26,25 +26,3 @@
     
   </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <% if false %>
-    <% @listings.each do |listing| %>
-      <%= listing.title %>
-      <img src="<%= image_url listing.image_url %>"/>
-      <%= listing.price %>
-      <%= listing.description %>
-      <%= link_to 'Click for more details', listing_path(listing) %>
-    <% end %>
-  <% end %>
