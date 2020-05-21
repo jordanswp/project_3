@@ -1,10 +1,10 @@
 <h1>All Listings</h1>
-<%= form_with scope: :category, url: categories_path, local: true do |form| %>
-<p>Select Category:</p>
-<%= form.collection_select :category_id, @categories, :id, :name %>
-<p><br/>
-<%= form.submit "Sort Category"%>
-</p>
+<%= form_with scope: :category, url: listings_path, local: true do |form| %>
+<% @categories.each do |category| %>
+    <tr>
+    <td><%= link_to category.name, listings_path(@listing,:category_id => category.id) %></td>
+    </tr>
+    <% end %> 
 <% end %> 
 <table>
 <thead>
@@ -15,6 +15,7 @@
       <th>Description</th>
     </tr>
   </thead>
+  <%= link_to 'New Listing', new_listing_path %>
   <% @listings.each do |listing| %>
     <tr>
       <td><%= listing.title %></td>
