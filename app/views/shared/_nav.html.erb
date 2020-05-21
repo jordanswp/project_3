@@ -18,7 +18,8 @@
     </form>
   <!-- right nav container -->
     <div class="userNav d-flex justify-content-end">
-      <div class="nav navbar-text navbar-right" style="font-weight: bold">Hello,</div>
+      <% if user_signed_in? %>
+      <p class="nav navbar-text navbar-right" style="font-weight: bold">Hello,</p>
       <ul class="nav navbar-nav">
         <li class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" style="font-weight: bold"><%= current_user.username %></a>
@@ -30,6 +31,9 @@
           </div>
         </li>
       </ul>
+      <% else %>
+      <a href="/users/sign_in" class="nav-item nav-link signNav">Sign In</a>
+      <% end %>
     </div> 
   </div>
 </nav>

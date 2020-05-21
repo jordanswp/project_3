@@ -11,7 +11,18 @@
 }
 
 .bg-navBg {
-background-image: linear-gradient(-50deg, #492E28 0%, #284349 100%);
+  background-image: linear-gradient(-50deg, #492E28 0%, #284349 100%);
+}
+
+.signNav {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.signNav:hover {
+  color: grey;
 }
 
 .dropdown {

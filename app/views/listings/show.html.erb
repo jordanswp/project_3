@@ -53,9 +53,17 @@
         <div id="newCommentDiv"></div>
         <%= render '/shared/comment_body' %>
       </div>
+      <% if user_signed_in? %>
       <div class="commentFooter"></div>
       <%= render '/shared/form_comment' %>
       <%= link_to 'Back To All Listings', listings_path, class: 'btn btn-dark' %>
+      <% else %>
+      <div class="text-center">
+        <%= link_to 'Back To All Listings', listings_path, class: 'btn btn-dark' %>
+        <%= link_to 'Sign In To Comment', '/users/sign_in', class: 'btn btn-dark' %>
+      </div>
+      <% end %>
+
     </div>
   </div>
   <p>
