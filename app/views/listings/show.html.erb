@@ -1,26 +1,67 @@
-<h1>Show Listing</h1>
-<p>
-  Name: <%= @listing.title %>
-</p>
-<p>Image:
-<img src="<%= image_url @listing.image_url %>"/>
-</p>
-<p>
- Price: <%= @listing.price %>
-</p>
-<p>
- Description: <%= @listing.description %>
-</p>
-<p>
- Category: <%= @listing.category.name%>
-</p>
-<div>
-  <h1>Comment Section</h1>
-  <div id="commentList"></div>
-  <%= render '/shared/comment_body' %>
-  <%= render '/shared/form_comment' %>
+<div class="showPageContainer">
+  <div class="listingContainer row">
+    <div class="carouselContainer col-10 col-sm-10 col-md-5 col-lg-3 m-3">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="<%= image_url @listing.image_url %>" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="<%= image_url @listing.image_url %>" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="<%= image_url @listing.image_url %>" alt="Third slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <div class="listingDetailsContainer col-10 col-sm-10 col-md-5 col-lg-3 text-left m-3">
+      <div class="listingTitlePriceContainer">
+        <h5>Title:</h5>
+        <p><%= @listing.title %></p>
+        <h5>Price:</h5>
+        <p><%= @listing.price %></p>
+      </div>
+      <div class="listingDescriptionContainer">
+        <h5>Description:</h5>
+        <p><%= @listing.description %></p> 
+        <h5>Seller:</h5>
+        <p><%= @listing.user.username %></p>
+        <h5>Contact:</h5>
+        <p><%= @listing.user.contact %></p>
+        <h5>Category:</h5>
+        <p><%= @listing.category.name %></p>
+      </div>
+    </div>
+
+    <div class="listingCommentContainer form-group col-10 col-sm-10 col-md-10 col-lg-7">
+      <div class="cssCommentBody">
+        <div class="commentHeading text-center"><h5>Comments</h5></div>
+        <div id="newCommentDiv"></div>
+        <%= render '/shared/comment_body' %>
+      </div>
+      <%= render '/shared/form_comment' %>
+      <%= link_to 'Back To All Listings', listings_path, class: 'btn btn-dark' %>
+    </div>
+  </div>
+  <p>
+  </p> 
 </div>
-<p>
-<%= link_to 'Back To All Listings', listings_path %>
-</p> 
+
+
+
+
 

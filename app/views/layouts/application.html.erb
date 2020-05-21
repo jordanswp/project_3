@@ -8,8 +8,22 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
-  <body>
-    <%= yield %>
-  </body>
+  
+  <% if current_user %>
+    <body data-username="<%= current_user.username %>">
+      <%= render "shared/nav" %>
+      <%= render "shared/category_bar" %>
+      <p></p>
+      <%= yield %>
+      <%= render "shared/footer" %>
+    </body>
+  <% else %>
+    <body>
+      <%= render "shared/logoutnav" %>
+      <%= render "shared/category_bar" %>
+      <p></p>
+      <%= yield %>
+      <%= render "shared/footer" %>
+    </body>
+  <% end %>
 </html>
