@@ -1,6 +1,21 @@
+.navBarOne {
+  top: 0px;
+  position: sticky;
+  z-index: 5;
+}
+
+.navBarTwo {
+  top: 60px;
+  position: sticky;
+  z-index: 1;
+}
 
 .bg-navBg {
 background-image: linear-gradient(-50deg, #492E28 0%, #284349 100%);
+}
+
+.dropdown {
+  z-index: 10 !important;
 }
 
  // animation for category bar 
@@ -24,7 +39,7 @@ background-image: linear-gradient(-50deg, #492E28 0%, #284349 100%);
   opacity: 0.6;
   height: 4px;
   transition-property: left, right;
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
   transition-timing-function: ease-out;
 }
 

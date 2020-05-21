@@ -1,0 +1,25 @@
+body {
+  user-select: none;
+}
+
+.itemList {
+  min-height: 800px;
+}
+
+.card-img-top {
+
+}
+
+.categoryIcon {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  font-size: 1rem;
+  font-style: italic;
+  background-color: white;
+  border-radius: 0.1rem;
+  border: 1px solid lightgrey;
+  padding: 0.2rem;
+  opacity: 0.8;
+}
+

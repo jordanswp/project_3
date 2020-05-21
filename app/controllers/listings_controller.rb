@@ -4,8 +4,10 @@ class ListingsController < ApplicationController
         @categories = Category.all
         if params[:category_id].blank?
             @listings = Listing.all
+            @current_category = 'All'
         else
             @listings = Listing.where(category_id: params[:category_id])
+            @current_category = Category.find(params[:category_id]).name
         end
     end
     def new

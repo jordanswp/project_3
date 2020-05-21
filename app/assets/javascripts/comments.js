@@ -35,7 +35,7 @@ $( document ).ready(function() {
 
   newCommentDiv.appendChild(newestComment)
   //scroll to newest reply 
-  newestComment.scrollIntoView();
+  document.querySelector('#scroll').scrollIntoView();
 
   });
 

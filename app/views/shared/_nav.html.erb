@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-navBg" style="max-height: 60px; min-width: 790px, box-shadow: 5px, 5px, 5px">
+<nav class="navBarOne navbar navbar-expand-md navbar-dark bg-navBg" style="max-height: 60px; min-width: 790px, box-shadow: 5px, 5px, 5px">
   <!-- logo -->
-  <a class="navbar-brand" href="/"><%= image_tag("logos/logo4.png", width: '45px') %></a>
+  <a class="navbar-brand" href="/"><%= image_tag("logos/logo4.png", width: '40px') %></a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,7 +10,8 @@
     <div class="navbar-nav">
       <a href="/" class="nav-item nav-link d-none">Home</a>
     </div>
-    <form class="form-inline col-lg-6 d-flex justify-content-center" style="">
+  <!-- search bar -->
+    <form class="form-inline col-lg-7 d-flex justify-content-center" style="">
       <input type="text" class="form-control mr-sm-2 col-lg-7" placeholder="Search">
       <button type="submit" class="searchBtn btn btn-outline-light mr-1"><%= image_tag("logos/whitesearch.png", width: '20px') %></button>
       <a href="<%= new_listing_path %>" class="btn btn-outline-light ml-2">Create Listing</a>
