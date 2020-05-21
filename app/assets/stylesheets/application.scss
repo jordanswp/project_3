@@ -11,10 +11,10 @@
  * It is generally better to create a new file per style scope.
  */
 
- 
 @import 'bootstrap';
 @import 'listings_index';
 @import 'listing_show';
 @import 'comments';
 @import 'navbar';
 @import 'rails_bootstrap_forms';
+@import 'devise';
