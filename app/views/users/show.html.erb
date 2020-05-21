@@ -1,0 +1,47 @@
+<body class="background">
+  <div class="container col-sm-5" style="background: white; box-shadow: 0 0 50px grey; margin-top: 50px; border-radius: 5px; height: 400px;">
+    <div class="col">
+
+        <div class="row">
+            <div class="col-sm-1">
+                <%= image_tag("logos/logo2.png", width: '45px', :class => "logo") %>
+            </div>
+            <div class="col-sm-11">
+                <nav class="navbar navbar-expand-md" style="background-color: #f8f8f8; border-radius: 5px;  white-space: nowrap; width: 104.5%;">
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav">
+                            <a href="#" class="nav-item nav-link active" style="color: #fa8286">Your Profile</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+
+
+
+        <div style="">
+            <div class="row">
+                <%= image_tag("backgrounds/blank.png", :class => "profile") %>
+
+
+
+                <div class="col" style="text-align: left;">
+                    <div style="">
+                        <p style="padding-left: 50px; padding-top: 50px; color: #d1d3d5">USERNAME</p>
+                        <p style="padding-left: 50px"><%= current_user.username %></p>
+
+                        <p style="padding-left: 50px; padding-top: 10px; color: #d1d3d5">EMAIL</p>
+                        <p style="padding-left: 50px"><%= current_user.email %></p>
+
+                        <p style="padding-left: 50px; padding-top: 10px; color: #d1d3d5">CONTACT</p>
+                        <p style="padding-left: 50px"><%= current_user.contact %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+  </div>
+</body>
