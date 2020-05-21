@@ -33,4 +33,9 @@ background-image: linear-gradient(-50deg, #492E28 0%, #284349 100%);
   right: 0;
 }
 
+.searchBtn:hover {
+  filter: invert(1);
+  background-color: black;
+}
+
 
