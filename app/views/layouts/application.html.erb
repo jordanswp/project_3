@@ -10,6 +10,25 @@
   </head>
 
   <body>
+
+    <% if current_user %>
+
+        <%= render "shared/nav" %>
+
+    <% else %>
+
+        <%= render "shared/logoutnav" %>
+
+    <% end %>
+
+    <%= render "shared/category_bar" %>
+
+    <p></p>
+
     <%= yield %>
+
   </body>
+
+<%= render "shared/footer" %>
+
 </html>
