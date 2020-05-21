@@ -13,21 +13,38 @@ $( document ).ready(function() {
   $('#commentForm').on('ajax:success', () => {
   console.log('button is clicked!');
 
-  const allComments = document.querySelector('#commentList');
+  const newCommentDiv = document.querySelector('#newCommentDiv');
   const commentTitle = document.querySelector('#commentTitle');
   const commentBody = document.querySelector('#commentBody');
+  const currentUser = document.body.getAttribute('data-username');
 
   const newestCommentTitle = document.createElement('p');
-  newestCommentTitle.innerText = `Comment Title: ${commentTitle.value}`;
+  newestCommentTitle.innerText = `${commentTitle.value}`;
   const newestCommentBody = document.createElement('p');
-  newestCommentBody.innerHTML = `Comment Body: ${commentBody.value}<br><br><br><br>`;
+  newestCommentBody.innerHTML = `${commentBody.value}`;
+  const newestCommentPoster = document.createElement('p');
+  newestCommentPoster.innerHTML = `Posted by: ${currentUser}`;
 
-  allComments.appendChild(newestCommentTitle)
-  allComments.appendChild(newestCommentBody)
+  const newestComment = document.createElement('div')
+  newestComment.classList.add('cssNewComment');
+  newestCommentTitle.classList.add('cssSubheading')
+
+  newestComment.appendChild(newestCommentTitle)
+  newestComment.appendChild(newestCommentBody)
+  newestComment.appendChild(newestCommentPoster)
+
+  newCommentDiv.appendChild(newestComment)
+  //scroll to newest reply 
+  newestComment.scrollIntoView();
 
   });
 
-  console.log('eventListener is loaded')
+  $('#commentForm').on('ajax:complete', () => {
+    $('#commentTitle').val('');
+    $('#commentBody').val('');
+  })
+
 
 })
+
 

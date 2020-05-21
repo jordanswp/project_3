@@ -1,3 +1,33 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.commentHeading {
+  border-bottom: 1px black solid;
+  margin-bottom: 1rem;
+}
+
+.cssSubheading {
+  font-weight: bold;
+}
+
+.cssSingleComment {
+  background-color: #EBEDEF;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.cssNewComment {
+  background-color: #EBEDEF;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  animation: newReply 0.5s;
+}
+
+@keyframes newReply {
+  from {background-color: black;}
+  to {background-color: #EBEDEF;}
+}
