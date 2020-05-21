@@ -1,11 +1,3 @@
-<h1>All Listings</h1>
-<%= form_with scope: :category, url: listings_path, local: true do |form| %>
-<% @categories.each do |category| %>
-    <tr>
-    <td><%= link_to category.name, listings_path(@listing,:category_id => category.id) %></td>
-    </tr>
-    <% end %> 
-<% end %> 
 <table>
 <thead>
     <tr>
