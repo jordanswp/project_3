@@ -7,10 +7,8 @@
       <% @listings.each do |listing| %>
       <div class="col-6 col-md-3 mt-4 d-flex">
         <div class="card list-item bg-white rounded overflow-hidden position-relative shadow hvr-grow">
-          <!-- set condition for category icon to appear only in ALL category -->
-          <% if @current_category == 'All' %>
-            <span class="categoryIcon"><%= listing.category.name %></span>
-          <% end %>
+          <!-- category icon to appear only in ALL category -->
+          <span class="categoryIcon"><%= listing.category.name %></span>
           <!-- link to each individual listing -->
           <a href="<%= listing_path(listing) %>">
             <img src="<%= listing.image_url %>" class="card-img-top" alt=""/>
