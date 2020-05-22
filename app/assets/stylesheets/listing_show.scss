@@ -5,6 +5,8 @@
 
 .showPageContainer {
   padding: 3rem 0;
+  background-color: #F4EEE5;  
+  animation: fadeIn 0.5s;
 }
 
 .listingContainer {
@@ -18,15 +20,11 @@
 
 .carousel-inner {
   border-radius: 1rem;
+  box-shadow: 2px 2px 5px;
 }
 
 .listingDetailsContainer {
   min-width: 360px;
-}
-
-.listingCommentContainer {
-  min-width: 360px;
-  margin: 3rem 0;
 }
 
 .listingDescriptionContainer {

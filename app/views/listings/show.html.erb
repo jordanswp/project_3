@@ -1,6 +1,6 @@
 <div class="showPageContainer">
   <div class="listingContainer row">
-    <div class="carouselContainer col-10 col-sm-10 col-md-5 col-lg-3 m-3">
+    <div class="carouselContainer col-10 col-md-5 col-lg-3 m-3">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -28,7 +28,7 @@
         </a>
       </div>
     </div>
-    <div class="listingDetailsContainer col-10 col-sm-10 col-md-5 col-lg-3 text-left m-3">
+    <div class="listingDetailsContainer col-10 col-md-5 col-lg-3 text-left m-3">
       <div class="listingTitlePriceContainer">
         <h5>Title:</h5>
         <p><%= @listing.title %></p>
@@ -43,18 +43,27 @@
         <h5>Contact:</h5>
         <p><%= @listing.user.contact %></p>
         <h5>Category:</h5>
-        <p><%= @listing.category.name %></p>
+        <p id='scroll'><%= @listing.category.name %></p>
       </div>
     </div>
 
-    <div class="listingCommentContainer form-group col-10 col-sm-10 col-md-10 col-lg-7">
+    <div class="listingCommentContainer form-group col-10 col-md-10 col-lg-7">
+      <div class="commentHeader"><h5>Comments</h5></div>
       <div class="cssCommentBody">
-        <div class="commentHeading text-center"><h5>Comments</h5></div>
         <div id="newCommentDiv"></div>
         <%= render '/shared/comment_body' %>
       </div>
+      <% if user_signed_in? %>
+      <div class="commentFooter"></div>
       <%= render '/shared/form_comment' %>
       <%= link_to 'Back To All Listings', listings_path, class: 'btn btn-dark' %>
+      <% else %>
+      <div class="text-center">
+        <%= link_to 'Back To All Listings', listings_path, class: 'btn btn-dark mt-2' %>
+        <%= link_to 'Sign In To Comment', '/users/sign_in', class: 'btn btn-dark mt-2' %>
+      </div>
+      <% end %>
+
     </div>
   </div>
   <p>
