@@ -4,7 +4,7 @@
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
     <span class="navbar-toggler-icon"></span>
   </button>
-  
+
   <!-- collapse nav container -->
   <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarCollapse">
     <div class="navbar-nav">
@@ -27,6 +27,7 @@
             <a href="#" class="dropdown-item">Reports</a>
             <a href="#" class="dropdown-item">Settings</a>
           <div class="dropdown-divider"></div>
+          <%= link_to 'Your Profile', current_user, class: 'dropdown-item'%>
           <%= link_to 'Log out', destroy_user_session_url, method: :delete, class: 'dropdown-item' %>
           </div>
         </li>
@@ -34,6 +35,6 @@
       <% else %>
       <a href="/users/sign_in" class="nav-item nav-link signNav">Sign In</a>
       <% end %>
-    </div> 
+    </div>
   </div>
 </nav>
