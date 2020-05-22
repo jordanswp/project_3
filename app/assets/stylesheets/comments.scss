@@ -2,9 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.listingCommentContainer {
+  min-width: 360px;
+  margin: 3rem 0;
+}
 
-.commentHeading {
+.commentHeader {
+  text-align: center;
   border-bottom: 1px black solid;
+  padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -12,22 +18,50 @@
   font-weight: bold;
 }
 
+.cssCommentBody {
+  max-height: 450px;
+  overflow: auto;
+  margin-top: -1rem;
+  margin-bottom: 0.5rem;
+}
+
+.commentFooter {
+  // border-top: 1px black solid;
+  margin-bottom: 1.5rem;
+}
+
 .cssSingleComment {
-  background-color: #EBEDEF;
-  margin: 2rem 0;
+  background-color: white;
+  margin: 1rem 0;
   padding: 1rem;
   border-radius: 0.5rem;
 }
 
 .cssNewComment {
-  background-color: #EBEDEF;
+  background-color: white;
   margin: 2rem 0;
   padding: 1rem;
   border-radius: 0.5rem;
-  animation: newReply 0.5s;
+  animation: fadeInUp 0.5s;
+  // animation: newReply 0.5s;
 }
+
+
+// animations
 
 @keyframes newReply {
   from {background-color: black;}
-  to {background-color: #EBEDEF;}
+  to {background-color: white;}
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }

@@ -1,20 +1,26 @@
-<table>
-<thead>
-    <tr>
-      <th>Name</th>
-      <th>Image</th>
-      <th>Price</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <%= link_to 'New Listing', new_listing_path %>
-  <% @listings.each do |listing| %>
-    <tr>
-      <td><%= listing.title %></td>
-      <td><img src="<%= image_url listing.image_url %>"/></td>
-      <td><%= listing.price %></td>
-      <td><%= listing.description %></td>
-      <td><%= link_to 'Click for more details', listing_path(listing) %></td>
-    </tr>
-  <% end %>
-</table>
+  
+
+<section class="itemList p-5">
+  <div class="container">
+    <h6 class="">Showing Category: <%= @current_category %></h6>
+    <div class="row">
+      <% @listings.each do |listing| %>
+      <div class="col-6 col-md-3 mt-4 d-flex">
+        <div class="card list-item bg-white rounded overflow-hidden position-relative shadow hvr-grow">
+          <!-- category icon to appear only in ALL category -->
+          <span class="categoryIcon"><%= listing.category.name %></span>
+          <!-- link to each individual listing -->
+          <a href="<%= listing_path(listing) %>">
+            <img src="<%= listing.image_url %>" class="card-img-top" alt=""/>
+          </a>
+          <div class="card-body">
+            <h6 class="card-title mb-1"><%= listing.title %></h6>
+            <p class="text-dark mb-0"><%= listing.price %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    
+  </div>
+</section>
