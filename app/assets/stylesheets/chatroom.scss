@@ -1,0 +1,35 @@
+.chatRoomContainer {
+  min-width: 80vw;
+  min-height: 80vh;
+  background-color: lightgrey;
+}
+
+// Inbox
+.inboxContainer {
+  background-color: grey;
+  padding: 1rem;
+}
+
+.inboxMsg {
+  background-color: white;
+}
+
+// active chat
+.activeChatContainer {
+  background-color: lightblue;
+  padding: 1rem;
+}
+
+.activeChatBoardArea {
+  background-color: white;
+  height: 58vh;
+}
+
+.activeChatMsg {
+  
+}
+
+.activeChatInputArea {
+  background-color: lightgreen;
+  height: 20vh;
+}

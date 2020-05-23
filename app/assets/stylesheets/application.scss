@@ -20,4 +20,8 @@
 @import 'navbar';
 @import 'rails_bootstrap_forms';
 @import 'devise';
+@import 'chatroom';
 
+.yieldContainer {
+  min-height: 90vh;
+}

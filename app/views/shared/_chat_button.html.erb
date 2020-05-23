@@ -1,0 +1,13 @@
+<!-- chat button -->
+<% if user_signed_in? %>
+  <% if room_exist?(@listing.id, current_user, @listing.user) %>
+    <!-- show chat room -->
+    <%= link_to 'Chat', room_path(find_room(@listing.id, current_user, @listing.user)), class: 'btn btn-dark' %>
+  <% else %>
+  <!-- create new chatroom -->
+  <%= button_to 'Chat', rooms_path, params: {room: { listing_id: @listing.id}}, local: true, class: 'btn btn-danger' %>
+  <% end %>
+<% else %>
+  <!-- link to sign in page -->
+  <%= link_to 'Sign In To Chat', room_path(find_room(@listing.id, current_user, @listing.user)), class: 'btn btn-dark' %>   
+<% end %>

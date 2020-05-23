@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(username: 'Admin', email: 'admin@email.com', password: '123456', password_confirmation: '123456')
-User.create(username: 'Akira', email: 'akira@email.com', password: '123456', password_confirmation: '123456')
-User.create(username: 'Stuart', email: 'Stuart@email.com', password: '123456', password_confirmation: '123456')
-User.create(username: 'Ben', email: 'ben@email.com', password: '123456', password_confirmation: '123456')
-User.create(username: 'Jessica', email: 'jessica@email.com', password: '123456', password_confirmation: '123456')
+User.create(username: 'Admin', email: 'admin@email.com', contact: '92031290', password: '123456', password_confirmation: '123456')
+User.create(username: 'Akira', email: 'akira@email.com', contact: '82031290', password: '123456', password_confirmation: '123456')
+User.create(username: 'Stuart', email: 'Stuart@email.com', contact: '83331290', password: '123456', password_confirmation: '123456')
+User.create(username: 'Ben', email: 'ben@email.com', contact: '90031290', password: '123456', password_confirmation: '123456')
+User.create(username: 'Jessica', email: 'jessica@email.com', contact: '99031290', password: '123456', password_confirmation: '123456')
 
 Category.create(name: 'Fashion')
 Category.create(name: 'Electronics')
@@ -62,22 +62,19 @@ Comment.create(title: 'I want to buy this - Offer', body: 'Hi, I am really inter
 
 #room_id = 1
 Room.create(listing_id: 1) 
-Room.find(1).users.append(User.find(1))
-Room.find(1).users.append(User.find(5))
-Message.new(body: 'Hi, this is Admin', room_id: 1, user_id: 1)
-Message.new(body: 'Oh hi, this is a reply from Jessica', room_id: 1, user_id: 5)
+Room.find(1).users.append([User.find(1), User.find(5)])
+Message.create(body: 'Hi, this is Admin', room_id: 1, user_id: 1)
+Message.create(body: 'Oh hi, this is a reply from Jessica', room_id: 1, user_id: 5)
 
 #room_id = 2
 Room.create(listing_id: 2)
-Room.find(2).users.append(User.find(1))
-Room.find(2).users.append(User.find(4))
-Message.new(body: 'Hi Daniel, I am ben. How are you?', room_id: 2, user_id: 4)
+Room.find(2).users.append([User.find(4), User.find(1)])
+Message.create(body: 'Hi Daniel, I am ben. How are you?', room_id: 2, user_id: 4)
 
 #room_id = 3 
-Room.create(listing_id: 3)
-Room.find(3).users.append(User.find(3))
-Room.find(3).users.append(User.find(1))
-Message.new(body: 'Hi Daniel, this is Stuart. How are you?', room_id: 3, user_id: 3)
+Room.create(listing_id: 1)
+Room.find(3).users.append([User.find(3), User.find(1)])
+Message.create(body: 'Hi Daniel, this is Stuart. How are you?', room_id: 3, user_id: 3)
 
 
 
