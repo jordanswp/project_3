@@ -1,7 +1,10 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
 
-  def new
+  def index
+    # inbox logic
+    @existing_rooms = Room.all.select { |r| r.users.include?(current_user) }
+
   end
 
   def create
@@ -17,10 +20,15 @@ class RoomsController < ApplicationController
   end
 
   def show
-    # all rooms that include current_user
+    # inbox logic
     @room = Room.find(params[:id])
-    @existing_rooms = Room.all.each { |r| r.users.include?(current_user) }
+    @existing_rooms = Room.all.select { |r| r.users.include?(current_user) }
+
+    #all messages from current room
+    @messages = Message.all.where(room_id: @room.id)
     @message = Message.new
+
+    user_session['last_room_id'] = @room.id
   end
 
   #delete room by selecting from inbox

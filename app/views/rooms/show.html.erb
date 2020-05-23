@@ -1,16 +1,23 @@
-<h6 class="text-center">Chatroom interface</h6>
+<h6 class="text-center">Show interface</h6>
 <!-- main container -->
 <div class="chatRoomContainer container col-10">
   <div class="row">
     <!-- left-inbox -->
     <div class="inboxContainer col-3">
       <!-- get all rooms/msgs for inbox -->
+
+
+
       <% if @existing_rooms.any? %>
         <% @existing_rooms.each do |r| %>
         <div class="inboxMsg">
           <p>Listing:<%= r.listing.title %></p> 
           <p>Room Id:<%= r.id %></p>
+
+
           <p>Talking to:<%= find_other_username(r, current_user) %></p>
+
+
         </div>
         <% end %>
       <% else %>
@@ -23,15 +30,29 @@
     <!-- right-current-active-chat -->
     <div class="activeChatContainer col-9">
       <div class="activeChatBoardArea">
-        
+      <!-- populate chat messages -->
+      <% @messages.each do |m| %>
+        <!-- my own message -->
+        <% if m.user.id == current_user.id %>
+        <div class="activeChatStripe d-flex justify-content-end">
+          <p class="activeChatMsg"><%= m.body %></p>
+        </div>
+        <% else %>
+        <!-- seller message -->
+        <div class="activeChatStripe d-flex justify-content-start">
+          <p class="userAvatar"><%= m.user.username %></p>
+          <p class="activeChatMsg"><%= m.body %></p>
+          </div>
+        <% end %>
+      <% end %>
       </div>
       <div class="activeChatInputArea">
         <!-- messaging form, @message = Message.new-->
-        <%= bootstrap_form_with model: @message do |form| %>
-          <%= form.text_area :body, hide_label:true, rows: 3 %>
-          <% hidden_field_tag('room_id', @room.id) %>
-          <% hidden_field_tag('user_id', current_user.id) %>
-          <%= form.submit "Send", class: 'btn btn-dark' %>
+        <%= bootstrap_form_with model: @message do |f| %>
+          <%= f.text_area :body, hide_label:true, rows: 3 %>
+          <%= f.hidden_field(:room_id, value: @room.id) %>
+          <%= f.hidden_field(:user_id, value: current_user.id) %>
+          <%= f.submit "Send", class: 'btn btn-dark' %>
         <% end %>        
       </div>
     </div>

@@ -1,25 +1,29 @@
-class RoomsController < ApplicationController
+class MessagesController < ApplicationController
   before_action :authenticate_user!
 
   def create
     @message = Message.new(message_params)
-  end
 
-  def show
-  end
 
-  def edit
-  end
+    puts '--------------------------'
+    puts message_params
+    puts '--------------------------'
 
-  def update
+    if @message.save!
+      #do something i guess?
+    else
+      puts '****************'
+      puts 'message not saved'
+      puts '****************'
+    end
   end
 
   def destroy
   end
 
   private
-  def room_params 
-    params.require(:room).permit(:listing_id)
+  def message_params 
+    params.require(:message).permit(:body, :room_id, :user_id)
   end
 
 end

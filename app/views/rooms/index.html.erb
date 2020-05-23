@@ -1,1 +1,37 @@
-<p>chatroom index</p>
+<h6 class="text-center">Index interface</h6>
+<!-- main container -->
+<div class="chatRoomContainer container col-10">
+  <div class="row">
+    <!-- left-inbox -->
+    <div class="inboxContainer col-3">
+      <!-- get all rooms/msgs for inbox -->
+
+
+
+      <% if @existing_rooms.any? %>
+        <% @existing_rooms.each do |r| %>
+        <div class="inboxMsg">
+          <p>Listing:<%= r.listing.title %></p> 
+          <p>Room Id:<%= r.id %></p>
+
+
+          <p>Talking to:<%= find_other_username(r, current_user) %></p>
+
+
+        </div>
+        <% end %>
+      <% else %>
+        <div>
+          <p>Inbox is empty!</p>
+        </div>
+      <% end %>
+
+    </div>
+    <!-- right-current-active-chat -->
+    <div class="activeChatContainer col-9">
+      <div class="activeChatBoardArea">
+      <!-- no chat area -->
+      </div>
+    </div>
+  </div>
+</div>
