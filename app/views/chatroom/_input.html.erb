@@ -1,6 +1,6 @@
   <div class="inputDiv">
     <!-- messaging form, @message = Message.new-->
-    <%= form_with model: @message do |f| %>
+    <%= form_with model: @message, id: 'submitForm' do |f| %>
       <div class="input-group">
         <%= f.text_area :body, placeholder: 'Say a message...', rows: 3, class: 'form-control' %>
         <%= f.hidden_field(:room_id, value: @room.id) %>

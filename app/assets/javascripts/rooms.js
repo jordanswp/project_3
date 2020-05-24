@@ -11,10 +11,14 @@ console.log('chatroom script is running')
 //   $('.chatBoardArea').last().scrollIntoView();
 // });
 
-window.onload = () => {
-  console.log('page is fully loaded');
+$(window).on('load', function () {
   $('.chatBoardArea').scrollTop($('.chatBoardArea')[0].scrollHeight);
 
-  // const height = document.querySelector('.chatBoardArea').height;
-  // document.querySelector('.chatBoardArea').scrollTop()
-};
+  $('#message_body').keypress(function(event) {
+    if (event.which == 13 && !event.shiftKey) {
+        console.log('enter is pressed without shift')
+        $('#submitForm').submit()
+    }
+  });
+});
+

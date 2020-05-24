@@ -4,7 +4,7 @@
 //= require jquery3
 //= require jquery_ujs
 
-console.log('script is running');
+console.log('comments script is running');
 
 
 $( document ).ready(function() {
