@@ -2,7 +2,7 @@
   <%= bootstrap_form_with model: Listing.new, url: listings_path, local: true do |form| %>
     <%= form.text_field :title %>
     <%= form.collection_select :category_id, @categories, :id, :name %>
-    <%= form.text_area :image_url, label: 'Image link' %>
+    <%= form.file_field :image_url , accept: 'image/png,image/gif,image/jpeg'%>
     <%= form.text_area :price, rows: 1 %>
     <%= form.text_area :description, rows: 6 %>
     <%= link_to 'Back', root_path, class: 'btn btn-dark' %>

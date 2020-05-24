@@ -11,23 +11,49 @@ class ListingsController < ApplicationController
             @current_category = Category.find(params[:category_id]).name
         end
     end
+
     def new
         @listing = Listing.new
         @categories = Category.all
     end
+
     def create
         @listing = Listing.new(listing_params)
         @listing.user = current_user
+        uploaded_file = listing_params[:image_url].path
+        cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+        @listing.image_url = cloudinary_file['url']
         if @listing.save
             redirect_to @listing
           else
             render 'new'
           end
     end
+
     def show
         @listing = Listing.find(params[:id])
     end
-    
+    def edit
+      @categories = Category.all
+      @listing = Listing.find(params[:id])
+  end
+
+    def update
+      @listing = Listing.find(params[:id])
+      uploaded_file = listing_params[:image_url].path
+      cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+      @listing.image_url = cloudinary_file['url']
+      byebug
+      @listing.update(listing_params)
+      redirect_to @listing
+  end
+  
+  def destroy
+      @listing = Listing.find(params[:id])
+      @listing.destroy
+      redirect_to root_path
+  end
+
   def listing_params
     params.require(:listing).permit(:title, :image_url, :price, :description, :category_id)
   end
