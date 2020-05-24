@@ -21,7 +21,17 @@
 @import 'rails_bootstrap_forms';
 @import 'devise';
 @import 'chatroom';
+@import 'messages';
 
 .yieldContainer {
-  min-height: 90vh;
+  // min-height: 90vh;
+}
+
+html, body {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.disableScroll {
+  overflow-y: hidden;
 }

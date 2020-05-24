@@ -1,0 +1,66 @@
+span {
+  font-size: 0.8rem;
+}
+
+.msgBubble {
+  position: relative;
+  margin: 1rem 1rem;
+  max-width: 25rem;
+}
+
+.receivedPoke::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 13px solid transparent;
+  border-right: 10px solid white ;
+  border-top: 0px solid transparent;
+  border-bottom: 10px solid transparent;
+  left: -22px;
+}
+
+.receivedMsg {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  box-shadow: 2px 2px 15px -9px;
+}
+
+.sentMsg {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #eea990 ;
+  box-shadow: 2px 2px 15px -9px;
+
+}
+
+.sentPoke::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid #eea990;
+  border-right: 10px solid transparent;
+  border-top: 0px solid transparent;
+  border-bottom: 10px solid transparent;
+  right: -19px;
+  bottom: 12px;
+}
+
+// inbox message
+
+.inboxMsg {
+  background-color: white;
+  height: 15vh;
+  width: 35vh;
+  border-bottom: 0.1rem solid lightgrey;
+  margin: 0;
+  padding: 0.3rem;
+}
+
+.inboxImg {
+  display: flex;
+  align-items: center;
+}
+

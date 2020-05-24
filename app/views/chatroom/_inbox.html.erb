@@ -1,0 +1,31 @@
+<div class="inboxContainer">
+      <!-- get all rooms/msgs for inbox -->
+      <% if @existing_rooms.any? %>
+        <% @existing_rooms.each do |r| %>
+        <a href="<%= room_path(r) %>" class="inboxMsg">
+          <div class="row h-100">
+            <div class="col-3 inboxImg h-100">
+              <img class="img-fluid" src="<%= image_url r.listing.image_url %>">
+            </div>
+            <div class="col-9 inboxDetails h-100">
+              <div class="row h-50">
+                <div class="container">
+                  <h6 class="inboxMsgHeading"><%= r.listing.title %></h6>  
+                  <h6 class="inboxMsgHeading"><%= find_other_username(r, current_user) %></h6>
+                </div>
+              </div>
+              <div class="row h-50">
+                <div class="msgSnapshot inboxMsgHeading">
+                  <span>This shows the last conversation</span>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <% end %>
+      <% else %>
+        <div>
+          <p>Inbox is empty!</p>
+        </div>
+      <% end %>
+</div>

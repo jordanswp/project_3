@@ -17,10 +17,7 @@ class MessagesController < ApplicationController
       puts '****************'
     end
   end
-
-  def destroy
-  end
-
+  
   private
   def message_params 
     params.require(:message).permit(:body, :room_id, :user_id)
