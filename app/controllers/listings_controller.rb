@@ -42,7 +42,6 @@ class ListingsController < ApplicationController
       uploaded_file = listing_params[:image_url].path
       cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
       @listing.image_url = cloudinary_file['url']
-      byebug
       @listing.save(listing_params)
       redirect_to @listing
   end
