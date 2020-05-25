@@ -22,7 +22,6 @@ class ListingsController < ApplicationController
         @listing.user = current_user
         uploaded_file = listing_params[:image_url].path
         cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
-        @listing.image_url = cloudinary_file['url']
         if @listing.save
             redirect_to @listing
           else
@@ -44,7 +43,7 @@ class ListingsController < ApplicationController
       cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
       @listing.image_url = cloudinary_file['url']
       byebug
-      @listing.update(listing_params)
+      @listing.save(listing_params)
       redirect_to @listing
   end
   
