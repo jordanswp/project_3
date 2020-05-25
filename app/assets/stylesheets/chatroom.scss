@@ -10,40 +10,66 @@
 
 .chatRoomContainer {
   display: flex;
+  min-width: 90vw;
   align-items: stretch;
   justify-content: flex-start;
-  background-color: white;
+  background: rgba(255,244,244,1);
+  background: linear-gradient(28deg, rgba(255,244,244,1) 0%, rgba(226,222,222,1) 100%);
   overflow-y: hidden;
+  min-width: 55rem;
   padding: 0;
-  box-shadow: 0px 0px 6px;
+  border-radius: 0.2rem;
+  box-shadow: 0px 0px 8px 0px;
 }
 
 // Inbox
+.inboxOutsideContainer {
+  display: flex;
+  justify-content: center;
+  width: 20rem;
+background: rgb(25,49,54);
+background: radial-gradient(circle, rgba(25,49,54,1) 0%, rgba(27,44,47,1) 100%, rgba(255,255,255,1) 100%);
+  z-index: 2;
+}
+
 .inboxContainer {
   display: flex;
-  flex-shrink: 0;
-  align-items: stretch;
-  flex-flow: column wrap;
-  background-color: #66545e;
-  padding: 0.5rem;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 2;
 }
 
 // active chat
 .activeChatContainer {
-  // for parent div: chatRoomContainer
   flex-grow: 1;
   // for chid divs
   display: flex;
   flex-flow: column;
-  background: rgb(255,244,244);
+  background: rgba(255,244,244,1);
   background: linear-gradient(28deg, rgba(255,244,244,1) 0%, rgba(226,222,222,1) 100%);
-  padding: 0.3rem;
+  padding: 0.5rem 1rem;
+}
+
+.activeChatHeader {
+  background-color: white;
+  height: 5rem;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  z-index: 1;
+
+}
+
+.personFont {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Courgette', cursive;
 }
 
 .chatBoardArea {
   flex-grow: 1;
   overflow-y: scroll;
-  padding: 0.8rem; 
 }
 
 .inputDiv {
@@ -53,19 +79,7 @@
 
 // active chat inner divs
 .activeChatStripe {
-}
-
-.userAvatar {
-  background-color: teal;
-  border-radius: 1.5rem;
-  padding: 1rem;
-  margin: 1.5rem 1rem 1.5rem 0;
-}
-
-.timestamp {
-  color: grey;
-  font-size: 0.7rem;
-  text-align: right;
+  animation: fadeIn 0.5s;
 }
 
 #message_body {
@@ -86,3 +100,18 @@
   width: 4rem;
   height: 3.5rem;
 }
+
+// additonal CSS
+
+.shadow8 {
+  box-shadow: 0px 10px 10px rgba(200, 154, 161, 0.3),
+              0px 15px 15px rgba(200, 154, 161, 0.2),
+              0px 20px 20px rgba(200, 154, 161, 0.1),
+              0px 25px 25px rgba(200, 154, 161, 0.05);
+}
+
+
+
+
+
+

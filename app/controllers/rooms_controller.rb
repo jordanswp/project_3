@@ -20,13 +20,19 @@ class RoomsController < ApplicationController
   end
 
   def show
-    # inbox logic
-    @room = Room.find(params[:id])
-    @existing_rooms = current_user.rooms
+    #inbox security (check if user is in room)
+    if current_user.rooms.exists?(params[:id])
+      
+      # inbox logic
+      @room = Room.find(params[:id])
+      @existing_rooms = current_user.rooms
 
-    #all messages from current room
-    @messages = Message.all.where(room_id: @room.id)
-    @message = Message.new
+      #all messages from current room
+      @messages = Message.all.where(room_id: @room.id)
+      @message = Message.new
+    else 
+      redirect_to rooms_path
+    end
 
   end
 

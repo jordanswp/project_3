@@ -8,6 +8,24 @@ span {
   max-width: 25rem;
 }
 
+.userAvatar {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: lightgrey;
+  margin: 1.5rem 0.5rem 1.5rem 0;
+  font-family: 'Courgette';
+  font-weight: bold;
+}
+
+.timestamp {
+  color: grey;
+  font-size: 0.7rem;
+  text-align: right;
+}
+
 .receivedPoke::before {
   content: "";
   width: 0px;
@@ -30,7 +48,7 @@ span {
 .sentMsg {
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: #eea990 ;
+  background-color: #d0b1aa ;
   box-shadow: 2px 2px 15px -9px;
 
 }
@@ -40,7 +58,7 @@ span {
   width: 0px;
   height: 0px;
   position: absolute;
-  border-left: 10px solid #eea990;
+  border-left: 10px solid #d0b1aa;
   border-right: 10px solid transparent;
   border-top: 0px solid transparent;
   border-bottom: 10px solid transparent;
@@ -49,18 +67,45 @@ span {
 }
 
 // inbox message
-
-.inboxMsg {
-  background-color: white;
-  height: 15vh;
-  width: 35vh;
-  border-bottom: 0.1rem solid lightgrey;
+.emptyInbox {
+  color: white;
   margin: 0;
   padding: 0.3rem;
+  animation: 1;
+}
+
+.inboxMsg {
+  height: 15vh;
+  margin: 0;
+  padding: 1rem;
+  border-bottom: 0.1rem solid #475f63;
+}
+
+.inboxMsg:hover {
+  background-color: #344c50;
+  transition: 0.5s;
+  box-shadow: 0px 0px 20px 0px;
+  border: none;
 }
 
 .inboxImg {
   display: flex;
   align-items: center;
 }
+
+.inboxMsgHeading {
+  color: white;
+}
+
+.inboxMsgPerson {
+  font-size: 1rem;
+  color: lightgrey;
+  font-family: 'Courgette', cursive;
+}
+
+
+
+
+
+
 

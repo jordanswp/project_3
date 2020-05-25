@@ -8,6 +8,12 @@ console.log('chatroom script is running')
 
 $(window).on('load', function () {
 
+  //appends hidden links to inbox messages  
+  $(".hiddenUrl").click(function(){
+      window.location = $(this).find('a').attr("href");
+  });
+
+  //scrolls chatroom messages
   $('.chatBoardArea').scrollTop($('.chatBoardArea')[0].scrollHeight);
 
   //sends message after enter is pressed
@@ -24,4 +30,5 @@ $(window).on('load', function () {
   })
 
 });
+
 

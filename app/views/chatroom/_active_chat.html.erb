@@ -1,4 +1,6 @@
    <div class="activeChatContainer">
+      <!-- activechat header -->
+      <%= render partial: 'chatroom/active_chat_header', locals: { room: @room } %>
       <div class="chatBoardArea">
       <!-- populate chat messages -->
       <% @messages.each do |message| %>
