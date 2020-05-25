@@ -1,0 +1,26 @@
+<!-- sender message -->
+<% if message.user.id == current_user.id %>
+  <div class="activeChatStripe d-flex justify-content-end">
+    <div class="msgBubble">
+      <div class="sentMsg sentPoke">
+        <%= message.body %>
+        <div class="timestamp">
+          <%= message.created_at.strftime("Sent: %I:%M%p") %>
+        </div>             
+      </div>
+    </div>
+  </div>
+<% else %>
+<!-- receiver message -->
+<div class="activeChatStripe d-flex justify-content-start">
+  <div class="userAvatar"><%= message.user.username %></div>
+    <div class="msgBubble">
+      <div class="receivedMsg receivedPoke">
+        <%= message.body %>
+      <div class="timestamp">
+        <%= message.created_at.strftime("Received: %I:%M%p") %>
+      </div>              
+    </div>
+    </div>
+  </div>
+<% end %>

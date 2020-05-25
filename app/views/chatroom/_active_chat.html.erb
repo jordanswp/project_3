@@ -1,34 +1,9 @@
    <div class="activeChatContainer">
       <div class="chatBoardArea">
       <!-- populate chat messages -->
-      <% @messages.each do |m| %>
-        <!-- sender message -->
-        <% if m.user.id == current_user.id %>
-        <div class="activeChatStripe d-flex justify-content-end">
-          <div class="msgBubble">
-            <div class="sentMsg sentPoke">
-              <%= m.body %>
-              <div class="timestamp">
-                <%= m.created_at.strftime("Sent: %I:%M%p") %>
-              </div>             
-            </div>
-          </div>
-        </div>
-        <% else %>
-        <!-- receiver message -->
-        <div class="activeChatStripe d-flex justify-content-start">
-          <div class="userAvatar"><%= m.user.username %></div>
-            <div class="msgBubble">
-              <div class="receivedMsg receivedPoke">
-                <%= m.body %>
-              <div class="timestamp">
-                <%= m.created_at.strftime("Received: %I:%M%p") %>
-              </div>              
-            </div>
-            </div>
-          </div>
-        <% end %>
+      <% @messages.each do |message| %>
+        <%= render partial: 'chatroom/message', locals: { message: message } %>
       <% end %>
       </div>
-      <%= render '/chatroom/input' %>
+      <%= render partial: '/chatroom/input' %>
     </div>

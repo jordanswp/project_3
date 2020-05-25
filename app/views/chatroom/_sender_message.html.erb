@@ -1,0 +1,10 @@
+  <div class="activeChatStripe d-flex justify-content-end">
+    <div class="msgBubble">
+      <div class="sentMsg sentPoke">
+        <%= message.body %>
+        <div class="timestamp">
+          <%= message.created_at.strftime("Sent: %I:%M%p") %>
+        </div>             
+      </div>
+    </div>
+  </div>

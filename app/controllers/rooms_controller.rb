@@ -3,7 +3,7 @@ class RoomsController < ApplicationController
 
   def index
     # inbox logic
-    @existing_rooms = Room.all.select { |r| r.users.include?(current_user) }
+    @existing_rooms = current_user.rooms
 
   end
 
@@ -22,13 +22,12 @@ class RoomsController < ApplicationController
   def show
     # inbox logic
     @room = Room.find(params[:id])
-    @existing_rooms = Room.all.select { |r| r.users.include?(current_user) }
+    @existing_rooms = current_user.rooms
 
     #all messages from current room
     @messages = Message.all.where(room_id: @room.id)
     @message = Message.new
 
-    user_session['last_room_id'] = @room.id
   end
 
   #delete room by selecting from inbox

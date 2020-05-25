@@ -23,13 +23,8 @@
 @import 'chatroom';
 @import 'messages';
 
-.yieldContainer {
-  // min-height: 90vh;
-}
-
 html, body {
   height: 100%;
-  overflow-y: hidden;
 }
 
 .disableScroll {

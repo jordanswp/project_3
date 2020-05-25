@@ -4,23 +4,26 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
 
+    if @message.save
+      # prepare data for broadcast    
+      ActionCable.server.broadcast('room',
+        message: {
+          creator: @message.user.username,
+          body: @message.body,
+          time: @message.created_at.strftime("%I:%M%p")
+        }
+      )
 
-    puts '--------------------------'
-    puts message_params
-    puts '--------------------------'
-
-    if @message.save!
-      #do something i guess?
     else
-      puts '****************'
-      puts 'message not saved'
-      puts '****************'
+      redirect_to rooms_path
     end
   end
-  
+
   private
   def message_params 
     params.require(:message).permit(:body, :room_id, :user_id)
   end
+
+
 
 end
