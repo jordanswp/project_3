@@ -26,7 +26,7 @@ class MessageBroadcastJob < ApplicationJob
     MessagesController.render partial: 'chatroom/receiver_message', locals: { message: message }
   end
 
-  def render_inboxMsg(room)
-    RoomsController.render partial: 'chatroom/inbox_message', locals: { room: room }
-  end
+  # def render_inboxMsg(room)
+  #   RoomsController.render partial: 'chatroom/special_inboxMsg', locals: { message: message }
+  # end
 end

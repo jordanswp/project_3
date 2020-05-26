@@ -1,0 +1,23 @@
+<div class="inboxMsg hiddenUrl" data-inbox-id="<%= room.id %>">
+    <%= link_to 'x', room_path(room), method: :delete, data: { confirm: 'Delete Conversation?' }, class: "inboxMsgDelete" %>
+  <a href="<%= room_path(room) %>"></a>
+  <div class="row h-100 w-100 m-0">
+    <div class="col-3 inboxImgContainer h-100">
+      <img class="img-fluid rounded" src="<%= image_url room.listing.image_url %>">
+    </div>
+    <div class="col-9 inboxDetailContainer h-100 w-100">
+      <div class="fluid-container">
+        <div class="inboxMsgHeading"><%= room.listing.title %></div> 
+        <div class="inboxMsgPerson"></div>
+        <div class="inboxSnippet line-clamp">
+          <%= room.messages.last.body %>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
