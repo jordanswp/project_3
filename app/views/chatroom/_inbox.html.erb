@@ -1,8 +1,11 @@
+<div class="inboxHeader">
+  <div>Messages</div>
+</div>  
 <div class="inboxContainer">
       <!-- get all rooms/msgs for inbox -->
       <% if @existing_rooms.any? %>
         <% @existing_rooms.each do |room| %>
-          <%= render partial: 'chatroom/inbox_message', locals: { room: room } %>
+          <%= render partial: 'chatroom/inbox_message', locals: { room: room, messages: @messages } %>
         <% end %>
       <% else %>
       <div class="d-flex h-100 align-items-center justify-content-center">

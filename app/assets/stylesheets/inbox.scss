@@ -1,0 +1,97 @@
+.inboxOutsideContainer {
+  display: flex;
+  justify-content: center;
+  width: 22rem;
+background: rgb(25,49,54);
+background: radial-gradient(circle, rgba(25,49,54,1) 0%, rgba(27,44,47,1) 100%, rgba(255,255,255,1) 100%);
+  z-index: 2;
+}
+
+.inboxContainer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 2;
+}
+
+.inboxHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lightgrey;
+  height: 3rem;
+  width: 22rem;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+background: rgb(25,49,54);
+background: radial-gradient(circle, rgba(25,49,54,1) 0%, rgba(27,44,47,1) 100%, rgba(255,255,255,1) 100%);
+box-shadow: inset 0px 16px 97px -11px black,
+            0px 0px 10px 0px black;
+}
+
+// inbox messages
+.emptyInbox {
+  color: white;
+  margin: 0;
+  padding: 0.3rem;
+  animation: 1;
+}
+
+.inboxMsg {
+  margin: 0;
+  padding: 0.5rem;
+  border-bottom: 0.1rem solid #475f63;
+}
+
+.inboxMsg:hover {
+  background-color: #344c50;
+  transition: 0.5s;
+  box-shadow: 0px 0px 20px 0px;
+  border: none;
+}
+
+.inboxImgContainer {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.7rem 0;
+}
+
+.inboxMsgHeading {
+  color: white;
+  font-weight: bold;
+}
+
+.inboxDetailContainer {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  padding: 0.5rem;
+}
+
+.inboxMsgPerson {
+  text-align: left;
+  font-size: 0.8rem;
+  font-style: italic;;
+  color: lightgrey;
+  margin: 0 0 0.5rem 0;
+}
+
+.inboxSnippet {
+  font-size: 0.7rem;
+  color: lightgrey;
+  max-height: 4rem;
+  max-width: 14.25rem;
+  overflow: hidden;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+}
+
+
+

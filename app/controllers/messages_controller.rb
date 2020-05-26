@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
       # prepare data for broadcast    
       ActionCable.server.broadcast('room',
         message: {
+          room_id: @message.room_id,
           creator: @message.user.username,
           body: @message.body,
           time: @message.created_at.strftime("%I:%M%p")
