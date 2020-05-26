@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
     if @room.save
       redirect_to @room
     else
-      render plain: 'Room is not created'
+      redirect_to rooms_path
     end
   end
 
