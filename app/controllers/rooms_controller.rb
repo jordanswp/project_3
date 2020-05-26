@@ -22,7 +22,7 @@ class RoomsController < ApplicationController
   def show
     #inbox security (check if user is in room)
     if current_user.rooms.exists?(params[:id])
-      
+
       # inbox logic
       @room = Room.find(params[:id])
       @existing_rooms = current_user.rooms

@@ -25,4 +25,9 @@ module RoomsHelper
       room.users.first.username
     end
   end
+
+  def last_message_timestamp(room)
+    room.messages.last.created_at.strftime('%I:%M%p')
+  end
+
 end
