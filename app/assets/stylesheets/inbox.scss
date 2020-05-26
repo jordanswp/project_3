@@ -54,8 +54,8 @@ box-shadow: inset 0px 16px 97px -11px black,
 
 .inboxImgContainer {
   display: flex;
-  align-items: flex-start;
-  padding: 0.7rem 0;
+  align-items: center;
+  padding: 0.7rem 0.2rem;
 }
 
 .inboxMsgHeading {
@@ -73,14 +73,14 @@ box-shadow: inset 0px 16px 97px -11px black,
 
 .inboxMsgPerson {
   text-align: left;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-style: italic;;
   color: lightgrey;
   margin: 0 0 1rem 0;
 }
 
 .inboxSnippet {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: lightgrey;
   max-height: 4rem;
   max-width: 14.25rem;
@@ -89,8 +89,9 @@ box-shadow: inset 0px 16px 97px -11px black,
 
 .line-clamp {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  
+  word-wrap: break-word;
 }
 
 .inboxMsgDelete {

@@ -9,9 +9,11 @@
               <div class="fluid-container">
                 <div class="inboxMsgHeading"><%= room.listing.title %></div> 
                 <div class="inboxMsgPerson"><%= find_other_username(room, current_user) %></div>
+                <div class="inboxSnippet line-clamp">
                 <% if room.messages.any? %>
-                  <div class="inboxSnippet line-clamp"><%= room.messages.last.body %></div>  
+                  <%= room.messages.last.body %>
                 <% end %>
+                </div>  
               </div>
             </div>
           </div>

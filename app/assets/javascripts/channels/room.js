@@ -15,14 +15,14 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
 
       const chatBoardArea = $('.chatBoardArea');
 
-      //sender side DOM
+      //sender side DOM; check identity
       if (data.messages.user_id == document.body.dataset.id) {   
 
+          //seller activechat DOM
           chatBoardArea.append(data.messages.sender_message); 
           chatBoardArea.scrollTop(chatBoardArea[0].scrollHeight);
 
-          //sender inbox DOM
-
+          document.querySelector('.inboxSnippet').innerText = data.messages.body
 
       } else { 
 
@@ -34,9 +34,8 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
           chatBoardArea.scrollTop(chatBoardArea[0].scrollHeight);  
 
           //receiver inbox DOM
-
-
-
+          // const inboxContainer = $('.inboxContainer');
+          // inboxContainer.insertBefore(data.messages.inboxMsg, inboxContainer.childNodes[1]);
         }  
       }  
   }

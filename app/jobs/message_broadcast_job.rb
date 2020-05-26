@@ -9,7 +9,8 @@ class MessageBroadcastJob < ApplicationJob
         sender_message: render_sender(message),
         receiver_message: render_receiver(message),
         user_id: message.user_id,
-        room_id: message.room_id
+        room_id: message.room_id,
+        body: message.body
       }
     }
 
@@ -25,4 +26,7 @@ class MessageBroadcastJob < ApplicationJob
     MessagesController.render partial: 'chatroom/receiver_message', locals: { message: message }
   end
 
+  def render_inboxMsg(room)
+    RoomsController.render partial: 'chatroom/inbox_message', locals: { room: room }
+  end
 end
