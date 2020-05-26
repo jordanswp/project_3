@@ -1,0 +1,17 @@
+      <div class="col-6 col-md-3 mt-4 d-flex">
+
+        <div class="card list-item bg-white rounded overflow-hidden position-relative shadow hvr-grow">
+          <!-- category icon to appear only in ALL category -->
+          <span class="categoryIcon"><%= listing.category.name %></span>
+          <!-- link to each individual listing -->
+          <a href="<%= listing_path(listing) %>">
+            <img src="<%= listing.image_url %>" class="card-img-top" alt=""/>
+          </a>
+          <div class="card-body">
+            <h6 class="card-title mb-1"><%= listing.title %></h6>
+            <p class="text-dark mb-0"><%= listing.price %></p>
+          </div>
+        </div>
+
+      </div>
+

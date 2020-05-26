@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :listings, :categories, :users
   resources :rooms, :only => [:index, :create, :show, :destroy]
   resources :messages, :comments, :only => [:create]
+  get 'search', to: "listings#search"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -12,6 +12,11 @@ class ListingsController < ApplicationController
         end
     end
 
+    def search
+        @listings = Listing.where("title ILIKE ?", "%#{params[:q]}%")
+        @query = params[:q]
+    end
+
     def new
         @listing = Listing.new
         @categories = Category.all
@@ -46,7 +51,7 @@ class ListingsController < ApplicationController
       @listing.save(listing_params)
       redirect_to @listing
   end
-  
+
   def destroy
       @listing = Listing.find(params[:id])
       @listing.destroy
