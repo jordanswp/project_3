@@ -35,7 +35,6 @@ class RoomsController < ApplicationController
     else 
       redirect_to rooms_path
     end
-
   end
 
   #delete room by selecting from inbox
