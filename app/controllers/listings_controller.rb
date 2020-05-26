@@ -3,12 +3,7 @@ class ListingsController < ApplicationController
 
     def index
         @categories = Category.all
-
-        if params[:id] == current_user.id.to_s
-            @listings = Listing.where(user_id: params[:id])
-            @current_category = 'My Personal Listings'
-
-        elsif params[:category_id].blank?
+        if params[:category_id].blank?
             @listings = Listing.all
             @current_category = 'All'
         else
