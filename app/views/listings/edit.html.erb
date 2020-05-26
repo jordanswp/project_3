@@ -1,0 +1,27 @@
+<h1>Edit Listing</h1>
+<%= form_with scope: :listing, model: @listing, local: true do |form| %>
+  <p>
+    <%= form.label :Title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :Price %><br>
+    <%= form.text_area :price %>
+  </p>
+
+  <p>
+    <%= form.label :Description%><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+  <%= form.label :Image%><br>
+  <%= form.file_field :image_url , accept: 'image/png,image/gif,image/jpeg'%>
+</p>
+  <p>Category:</p>
+  <%= form.collection_select :category_id, @categories, :id, :name %>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', listing_path %> 

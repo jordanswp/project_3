@@ -8,7 +8,7 @@
     <!-- create new chatroom -->
     <%= bootstrap_form_with model: @room, local: true do |f| %>
     <%= f.hidden_field(:listing_id, value: @listing.id) %>
-    <%= f.submit "Chat", class: 'btn btn-danger' %>
+    <%= f.submit "Chat", class: 'btn btn-dark' %>
     <% end %>
   <% end %>
 
