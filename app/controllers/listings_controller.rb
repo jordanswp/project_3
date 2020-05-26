@@ -31,6 +31,7 @@ class ListingsController < ApplicationController
 
     def show
         @listing = Listing.find(params[:id])
+        @room = Room.new
     end
     def edit
       @categories = Category.all

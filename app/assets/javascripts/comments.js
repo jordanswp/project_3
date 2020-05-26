@@ -4,10 +4,10 @@
 //= require jquery3
 //= require jquery_ujs
 
-console.log('script is running');
+console.log('comments script is running');
 
 
-$( document ).ready(function() {
+$(window).on('load', function () {
 
   $('#commentForm').on('ajax:success', () => {
   console.log('button is clicked!');
@@ -36,7 +36,14 @@ $( document ).ready(function() {
   //scroll to newest reply 
   newestComment.classList.add('animate_fadeInUp')
   document.querySelector('#scroll').scrollIntoView();
+  });
 
+
+  $('#commentBody').keypress(function(event) {
+  if (event.which == 13 && !event.shiftKey) {
+    console.log('enter is pressed without shift');
+    $('#submitComment').submit();
+    }
   });
 
   $('#commentForm').on('ajax:complete', () => {

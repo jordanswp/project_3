@@ -1,0 +1,11 @@
+<div class="activeChatStripe d-flex justify-content-start">
+  <div class="userAvatar"><%= message.user.username %></div>
+    <div class="msgBubble">
+      <div class="receivedMsg receivedPoke">
+        <%= message.body %>
+      <div class="timestamp">
+        <%= message.created_at.strftime("Received: %I:%M%p") %>
+      </div>              
+    </div>
+    </div>
+  </div>

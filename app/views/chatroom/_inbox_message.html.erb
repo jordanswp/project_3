@@ -1,0 +1,20 @@
+        <div class="inboxMsg hiddenUrl">
+          <a href="<%= room_path(room) %>"></a>
+          <div class="row h-100">
+            <div class="col-3 inboxImg h-100">
+              <img class="img-fluid rounded" src="<%= image_url room.listing.image_url %>">
+            </div>
+            <div class="col-9 inboxDetails h-100 w-100">
+              <div class="fluid-container">
+                <p class="inboxMsgPerson"><%= find_other_username(room, current_user) %></p>
+                <h6 class="inboxMsgHeading"><%= room.listing.title %></h6>  
+    
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+

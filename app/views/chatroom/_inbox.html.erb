@@ -1,0 +1,12 @@
+<div class="inboxContainer">
+      <!-- get all rooms/msgs for inbox -->
+      <% if @existing_rooms.any? %>
+        <% @existing_rooms.each do |room| %>
+          <%= render partial: 'chatroom/inbox_message', locals: { room: room } %>
+        <% end %>
+      <% else %>
+      <div class="d-flex h-100 align-items-center justify-content-center">
+        <p class="emptyInbox animate__animated animate__fadeInDown animate__slow">Inbox is empty!</p>
+        </div>
+      <% end %>
+</div>

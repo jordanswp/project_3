@@ -1,5 +1,5 @@
-<div class="container pt-5 col-10 col-sm-10 col-md-6 col-lg-6" style="height: 800px">
-  <%= bootstrap_form_with model: Listing.new, url: listings_path, local: true do |form| %>
+<div class="container pt-5 col-10 col-sm-10 col-md-6 col-lg-6 fadeIn" style="height: 800px">
+  <%= bootstrap_form_with model: @listing, local: true do |form| %>
     <%= form.text_field :title %>
     <%= form.collection_select :category_id, @categories, :id, :name %>
     <%= form.file_field :image_url , accept: 'image/png,image/gif,image/jpeg'%>

@@ -4,12 +4,17 @@
     <title>Lystene</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
   </head>
   
-  <% if current_user %>
+  <% if current_user.present? && controller_name.include?('room') %>
+    <body data-username="<%= current_user.username %>" class="disableScroll">
+  <% elsif current_user.present? %>
     <body data-username="<%= current_user.username %>">
   <% else %>
     <body>
@@ -20,3 +25,7 @@
       <%= render "shared/footer" %>
     </body>
 </html>
+
+
+
+<%= controller_name %><%= action_name %>

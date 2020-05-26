@@ -45,11 +45,12 @@
         <h5>Category:</h5>
         <p id='scroll'><%= @listing.category.name %></p>
         <% if @listing.user_id == current_user.id  %>
-        <p><%= link_to 'Edit Listing', edit_listing_path(@listing) %></p>
+        <p><%= link_to 'Edit Listing', edit_listing_path(@listing), class: 'btn btn-secondary' %></p>
         <p><%= link_to 'Delete Listing', @listing,
           method: :delete,
-          data: { confirm: 'Are you sure?' } %></p>
+          data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%></p>
           <% end %>
+        <%= render '/shared/chat_button' %>
       </div>
     </div>
 
@@ -60,16 +61,15 @@
         <%= render '/shared/comment_body' %>
       </div>
       <% if user_signed_in? %>
-      <div class="commentFooter"></div>
-      <%= render '/shared/form_comment' %>
-      <%= link_to 'Back To All Listings', listings_path, class: 'btn btn-dark' %>
+        <div class="commentFooter"></div>
+        <%= render '/shared/form_comment' %>
+        <%= link_to 'Back To All Listings', listings_path, class: 'btn btn-dark' %>
       <% else %>
-      <div class="text-center">
+        <div class="text-center">
         <%= link_to 'Back To All Listings', listings_path, class: 'btn btn-dark mt-2' %>
         <%= link_to 'Sign In To Comment', '/users/sign_in', class: 'btn btn-dark mt-2' %>
-      </div>
+        </div>
       <% end %>
-
     </div>
   </div>
   <p>

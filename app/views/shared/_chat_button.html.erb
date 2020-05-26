@@ -1,0 +1,17 @@
+<!-- chat button -->
+<% if user_signed_in? && current_user != @listing.user %>
+
+  <% if room_exist?(@listing.id, current_user, @listing.user) %>
+    <!-- show chat room -->
+    <%= link_to 'Chat', room_path(find_room(@listing.id, current_user, @listing.user)[0]), class: 'btn btn-dark' %>
+  <% else %>
+    <!-- create new chatroom -->
+    <%= bootstrap_form_with model: @room, local: true do |f| %>
+    <%= f.hidden_field(:listing_id, value: @listing.id) %>
+    <%= f.submit "Chat", class: 'btn btn-dark' %>
+    <% end %>
+  <% end %>
+
+<% elsif !user_signed_in? %>
+  <%= link_to 'Sign In To Chat', '/users/sign_in', class: 'btn btn-dark' %>   
+<% end %>
