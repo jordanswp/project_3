@@ -11,8 +11,8 @@
       <a href="/" class="nav-item nav-link d-none">Home</a>
     </div>
   <!-- search bar -->
-    <form class="form-inline col-9 d-flex justify-content-center ml-auto" style="">
-      <input type="text" class="form-control mr-sm-2 col-lg-5" placeholder="Search">
+    <form class="form-inline col-9 d-flex justify-content-center ml-auto" action="/search">
+      <input type="text" class="form-control mr-sm-2 col-lg-5" placeholder="Search" name="q">
       <button type="submit" class="searchBtn btn btn-outline-light mr-1"><%= image_tag("logos/whitesearch.png", width: '20px') %></button>
       <a href="<%= new_listing_path %>" class="btn btn-outline-light ml-2">Create Listing</a>
       <a href="<%= rooms_path %>" class="btn btn-outline-light ml-2">Inbox</a>
