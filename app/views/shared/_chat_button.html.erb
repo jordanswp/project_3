@@ -3,12 +3,12 @@
 
   <% if room_exist?(@listing.id, current_user, @listing.user) %>
     <!-- show chat room -->
-    <%= link_to 'Chat', room_path(find_room(@listing.id, current_user, @listing.user)[0]), class: 'btn btn-dark' %>
+    <%= link_to 'Chat', room_path(find_room(@listing.id, current_user, @listing.user)), class: 'btn btn-dark' %>
   <% else %>
     <!-- create new chatroom -->
     <%= bootstrap_form_with model: @room, local: true do |f| %>
     <%= f.hidden_field(:listing_id, value: @listing.id) %>
-    <%= f.submit "Chat", class: 'btn btn-dark' %>
+    <%= f.submit "Chat", class: 'btn btn-danger' %>
     <% end %>
   <% end %>
 

@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
   def index
     # inbox logic
     @existing_rooms = current_user.rooms
+    @messages = Message.all
 
   end
 
@@ -15,7 +16,7 @@ class RoomsController < ApplicationController
     if @room.save
       redirect_to @room
     else
-      render plain: 'Room is not created'
+      redirect_to rooms_path
     end
   end
 
@@ -28,8 +29,9 @@ class RoomsController < ApplicationController
       @existing_rooms = current_user.rooms
 
       #all messages from current room
-      @messages = Message.all.where(room_id: @room.id)
+      @room_messages = Message.all.where(room_id: @room.id)
       @message = Message.new
+      @messages = Message.all
     else 
       redirect_to rooms_path
     end
