@@ -10,10 +10,8 @@ module RoomsHelper
   #find common room between two users for current listing_id
   def find_room(listing_id, user_one, user_two)
     rooms = Room.all.where(listing_id: listing_id)   
-    rooms.each do |r|   
-      if r.users.include?(user_one) && r.users.include?(user_two)
-      r
-      end
+    rooms.find do |r|   
+      r.users.include?(user_one) && r.users.include?(user_two)
     end
   end
 
