@@ -3,7 +3,10 @@ class RoomsController < ApplicationController
 
   def index
     # inbox logic, orders current_user rooms by latest message created
-    @existing_rooms = current_user.rooms.joins(:messages).order('messages.created_at DESC')
+    #all rooms except @room
+    rooms = current_user.rooms.where.not(id: params[:id])
+    @other_rooms_msg_y = rooms.left_joins(:messages).order('messages.created_at DESC').uniq
+
     @messages = Message.all
 
   end
@@ -24,10 +27,11 @@ class RoomsController < ApplicationController
     #inbox security (check if user is in room)
     if current_user.rooms.exists?(params[:id])
 
-      # inbox logic, orders current_user rooms by latest message created
-      @existing_rooms = current_user.rooms.joins(:messages).order('messages.created_at DESC')
+      #all rooms except @room
+      rooms = current_user.rooms.where.not(id: params[:id])
+      @other_rooms_msg_y = rooms.left_joins(:messages).order('messages.created_at DESC').uniq
 
-      #all messages from current room
+      #all messages from current room (active chat)
       @room = Room.find(params[:id])
       @room_messages = Message.all.where(room_id: @room.id)
       @message = Message.new

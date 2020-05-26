@@ -16,7 +16,7 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
       const chatBoardArea = $('.chatBoardArea');
 
       //sender side DOM
-      if (data.messages.user_id == $('body').attr('data-id')) {   
+      if (data.messages.user_id == document.body.dataset.id) {   
 
           chatBoardArea.append(data.messages.sender_message); 
           chatBoardArea.scrollTop(chatBoardArea[0].scrollHeight);

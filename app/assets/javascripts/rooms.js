@@ -8,18 +8,25 @@ console.log('chatroom script is running')
 
 $(window).on('load', function () {
 
+
   //appends hidden links to inbox messages  
-  $(".hiddenUrl").click(function() {
-    window.location = $(this).find('a').attr("href");
+  $('.hiddenUrl').click(function() {
+    window.location = $(this).find('a').attr('href');
   });
 
+  //highlight current inbox message
+
+  if (document.querySelector('.chatPageContainer').dataset.room_id != 0){
+    document.querySelector('.inboxMsg').classList.add('openedInboxMsg')
+  }
+
   //shows delete button on inbox message hover
-  $(".inboxMsg").mouseenter(function() {
+  $('.inboxMsg').mouseenter(function() {
     $(this).find('.inboxMsgDelete').addClass('showDelete')
   })
 
   //shows delete button on inbox message hover
-    $(".inboxMsg").mouseleave(function() {
+    $('.inboxMsg').mouseleave(function() {
     $(this).find('.inboxMsgDelete').removeClass('showDelete')
   })
 

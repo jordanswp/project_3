@@ -2,15 +2,21 @@
   <div>Messages</div>
 </div>  
 <div class="inboxContainer">
-      <!-- get all rooms/msgs for inbox -->
-      <% if @existing_rooms.exists? %>
-      <!-- sort rooms by most recent message -->
-        <% @existing_rooms.uniq.each do |room| %>
-          <%= render partial: 'chatroom/inbox_message', locals: { room: room } %>
-        <% end %>
-      <% else %>
-      <div class="d-flex h-100 align-items-center justify-content-center">
-        <p class="emptyInbox animate__animated animate__fadeInDown animate__slow">Inbox is empty!</p>
-        </div>
-      <% end %>
+  <!-- show current room -->
+  <% if @room %>
+    <%= render partial: 'chatroom/inbox_message', locals: { room: @room } %>
+  <% end %>
+  <!-- show rooms with messages -->
+  <% if @other_rooms_msg_y.any? %>  
+    <% @other_rooms_msg_y.each do |room| %>
+      <%= render partial: 'chatroom/inbox_message', locals: { room: room } %>
+    <% end %>
+  <% end %>
+  <!-- show rooms without messages -->
+  <!-- show empty inbox -->
+  <% if !current_user.rooms.any? %>
+    <div class="d-flex h-100 align-items-center justify-content-center">
+      <a href="<%= root_path %>"class="emptyInbox animate__animated animate__fadeInDown animate__slow" style="color: white">Start a conversation with a seller!</a>
+    </div>
+  <% end %>
 </div>

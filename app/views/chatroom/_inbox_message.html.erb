@@ -1,4 +1,4 @@
-        <div class="inboxMsg hiddenUrl">
+        <div class="inboxMsg hiddenUrl" data-inbox-id="<%= room.id %>">
             <%= link_to 'x', room_path(room), method: :delete, data: { confirm: 'Delete Conversation?' }, class: "inboxMsgDelete" %>
           <a href="<%= room_path(room) %>"></a>
           <div class="row h-100 w-100 m-0">

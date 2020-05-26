@@ -47,11 +47,10 @@ box-shadow: inset 0px 16px 97px -11px black,
 }
 
 .inboxMsg:hover {
-  background-color: #344c50;
-  transition: 0.5s;
-  box-shadow: 0px 0px 10px 0px;
-  border: none;
+  transition: 0.3s;
+  box-shadow: inset 0px 0px 10px 1px #344c50;
 }
+
 
 .inboxImgContainer {
   display: flex;
@@ -62,6 +61,7 @@ box-shadow: inset 0px 16px 97px -11px black,
 .inboxMsgHeading {
   color: white;
   font-weight: bold;
+  padding-right: 0.5rem;
 }
 
 .inboxDetailContainer {
@@ -106,6 +106,14 @@ box-shadow: inset 0px 16px 97px -11px black,
   font-weight: bold;
   opacity: 1;
   animation: fadeIn 2s;
+}
+
+.openedInboxMsg {
+  margin: 0;
+  padding: 0.5rem;
+  border-bottom: 0.1rem solid #475f63;
+  background-color: #344c50;
+  animation: fadeIn 0.5s;
 }
 
 // inbox Delete
