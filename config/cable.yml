@@ -1,10 +1,9 @@
 development:
-  adapter: postgresql
+  adapter: async
 
 test:
-  adapter: postgresql
+  adapter: async
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: project_3_production
+  url: redis://redistogo:ea110fe9346ebf5f82fa2ba7f08e63cb@pike.redistogo.com:11113/
