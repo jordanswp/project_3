@@ -13,43 +13,31 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
   received: function(data) {
       // Called when there's incoming data on the websocket for this channel
 
-      console.log('received data from the broadcast!')
-
       const chatBoardArea = $('.chatBoardArea');
 
-  
-      //append data received from broadcast to client side DOM
-      if (data.message.creator === $('body').attr('data-username')) { 
-        //show to message_sender
+      //sender side DOM
+      if (data.messages.user_id == $('body').attr('data-id')) {   
 
-          const timeStamp = $('<div>', { class: 'timestamp' }).text(`Sent: ${data.message.time}`);
-          const msgBody = $('<div>', { class: 'sentMsg sentPoke' }).text(data.message.body);
-          const msgBubble = $('<div>', { class: 'msgBubble' })
-          const msgStripe = $('<div>', { class: 'activeChatStripe d-flex justify-content-end' });
-          msgStripe.append(msgBubble.append(msgBody.append(timeStamp)))
-          chatBoardArea.append(msgStripe)     
-          //scroll when new message is appeared  
+          chatBoardArea.append(data.messages.sender_message); 
           chatBoardArea.scrollTop(chatBoardArea[0].scrollHeight);
 
+          //sender inbox DOM
+
+
       } else { 
-        //show to message_receiver
 
-        // check if current room matches room_id of the message broadcast
-        if (data.message.room_id.toString() == document.querySelector('.chatPageContainer').dataset.room_id) {        
-          const timeStamp = $('<div>', { class: 'timestamp' }).text(`Received: ${data.message.time}`);
-          const msgBody = $('<div>', { class: 'receivedMsg receivedPoke' }).text(data.message.body);
-          const msgBubble = $('<div>', { class: 'msgBubble' })
-          const userAvatar = $('<div>', { class: 'userAvatar' }).text(data.message.creator);
-          const msgStripe = $('<div>', { class: 'activeChatStripe d-flex justify-content-start' });
+        //receiver side DOM
+        //activechat DOM
+        if (data.messages.room_id == document.querySelector('.chatPageContainer').dataset.room_id) {        
 
-          msgStripe.append(userAvatar, msgBubble.append(msgBody.append(timeStamp)))
-          chatBoardArea.append(msgStripe)   
-          //scroll when new message is appeared  
+          chatBoardArea.append(data.messages.receiver_message);   
           chatBoardArea.scrollTop(chatBoardArea[0].scrollHeight);  
+
+          //receiver inbox DOM
+
+
+
         }  
       }  
-
-
-
   }
 });

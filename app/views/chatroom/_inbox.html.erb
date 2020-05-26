@@ -3,8 +3,9 @@
 </div>  
 <div class="inboxContainer">
       <!-- get all rooms/msgs for inbox -->
-      <% if @existing_rooms.any? %>
-        <% @existing_rooms.each do |room| %>
+      <% if @existing_rooms.exists? %>
+      <!-- sort rooms by most recent message -->
+        <% @existing_rooms.uniq.each do |room| %>
           <%= render partial: 'chatroom/inbox_message', locals: { room: room } %>
         <% end %>
       <% else %>

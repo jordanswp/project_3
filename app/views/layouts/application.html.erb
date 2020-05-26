@@ -13,9 +13,9 @@
   </head>
 
   <% if current_user.present? && controller_name.include?('room') %>
-    <body data-username="<%= current_user.username %>" class="disableScroll">
+    <body data-id="<%= current_user.id %>" class="disableScroll">
   <% elsif current_user.present? %>
-    <body data-username="<%= current_user.username %>">
+    <body data-id="<%= current_user.id %>">
   <% else %>
     <body>
   <% end %>

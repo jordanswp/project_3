@@ -9,9 +9,19 @@ console.log('chatroom script is running')
 $(window).on('load', function () {
 
   //appends hidden links to inbox messages  
-  $(".hiddenUrl").click(function(){
-      window.location = $(this).find('a').attr("href");
+  $(".hiddenUrl").click(function() {
+    window.location = $(this).find('a').attr("href");
   });
+
+  //shows delete button on inbox message hover
+  $(".inboxMsg").mouseenter(function() {
+    $(this).find('.inboxMsgDelete').addClass('showDelete')
+  })
+
+  //shows delete button on inbox message hover
+    $(".inboxMsg").mouseleave(function() {
+    $(this).find('.inboxMsgDelete').removeClass('showDelete')
+  })
 
   //scrolls chatroom messages
   $('.chatBoardArea').scrollTop($('.chatBoardArea')[0].scrollHeight);

@@ -1,4 +1,4 @@
-<body class="backgroundContainer">
+<div class="backgroundContainer">
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -48,4 +48,4 @@
             <p style="padding-top: 10px; padding-bottom: 10px">Already have an account? <%= render "devise/shared/links" %></p>
         </div>
       </div>
-</body>
+</div>

@@ -1,4 +1,5 @@
         <div class="inboxMsg hiddenUrl">
+            <%= link_to 'x', room_path(room), method: :delete, data: { confirm: 'Delete Conversation?' }, class: "inboxMsgDelete" %>
           <a href="<%= room_path(room) %>"></a>
           <div class="row h-100 w-100 m-0">
             <div class="col-3 inboxImgContainer h-100">
@@ -9,7 +10,7 @@
                 <div class="inboxMsgHeading"><%= room.listing.title %></div> 
                 <div class="inboxMsgPerson"><%= find_other_username(room, current_user) %></div>
                 <% if room.messages.any? %>
-                <div class="inboxSnippet line-clamp"><%= room.messages.last.body %></div>  
+                  <div class="inboxSnippet line-clamp"><%= room.messages.last.body %></div>  
                 <% end %>
               </div>
             </div>
