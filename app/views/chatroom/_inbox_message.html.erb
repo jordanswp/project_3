@@ -8,8 +8,8 @@
               <div class="fluid-container">
                 <div class="inboxMsgHeading"><%= room.listing.title %></div> 
                 <div class="inboxMsgPerson"><%= find_other_username(room, current_user) %></div>
-                <% if messages.where(room_id: room.id).exists? %>
-                <div class="inboxSnippet line-clamp"><%= messages.where(room_id: room.id).last.body %></div>  
+                <% if room.messages.any? %>
+                <div class="inboxSnippet line-clamp"><%= room.messages.last.body %></div>  
                 <% end %>
               </div>
             </div>

@@ -31,7 +31,6 @@ class RoomsController < ApplicationController
       #all messages from current room
       @room_messages = Message.all.where(room_id: @room.id)
       @message = Message.new
-      @messages = Message.all
     else 
       redirect_to rooms_path
     end
@@ -39,6 +38,7 @@ class RoomsController < ApplicationController
 
   #delete room by selecting from inbox
   def destroy
+    
   end
 
   private
