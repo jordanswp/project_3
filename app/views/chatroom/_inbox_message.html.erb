@@ -1,6 +1,6 @@
         <div class="inboxMsg hiddenUrl" data-inbox-id="<%= room.id %>">
             <%= link_to 'x', room_path(room), method: :delete, data: { confirm: 'Delete Conversation?' }, class: "inboxMsgDelete" %>
-          <a href="<%= room_path(room) %>"></a>
+          <span href="<%= room_path(room) %>"></span>
           <div class="row h-100 w-100 m-0">
             <div class="col-3 inboxImgContainer h-100">
               <img class="img-fluid rounded" src="<%= image_url room.listing.image_url %>">

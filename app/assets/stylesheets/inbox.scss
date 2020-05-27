@@ -109,6 +109,13 @@ box-shadow: inset 0px 16px 97px -11px black,
   animation: fadeIn 2s;
 }
 
+.showDelete:hover {
+  color: white;
+  font-weight: bold;
+  opacity: 1;
+  animation: fadeIn 2s;
+}
+
 .openedInboxMsg {
   margin: 0;
   padding: 0.5rem;
@@ -118,9 +125,10 @@ box-shadow: inset 0px 16px 97px -11px black,
 }
 
 // inbox Delete
+
 a, a:hover {
   text-decoration: none;
-  color: white;  
-}
+} 
+
 
 
