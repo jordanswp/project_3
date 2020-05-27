@@ -15,7 +15,7 @@ $(window).on('load', function () {
   const newCommentDiv = document.querySelector('#newCommentDiv');
   const commentTitle = document.querySelector('#commentTitle');
   const commentBody = document.querySelector('#commentBody');
-  const currentUser = document.body.getAttribute('data-username');
+  const currentUser = document.body.getAttribute('data-currentUser');
 
   const newestCommentTitle = document.createElement('p');
   newestCommentTitle.innerText = `${commentTitle.value}`;
