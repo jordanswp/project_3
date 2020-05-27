@@ -12,7 +12,10 @@ class ListingsController < ApplicationController
         end
     end
 
-
+    def search
+        @listings = Listing.where("title ILIKE ?", "%#{params[:q]}%")
+        @query = params[:q]
+    end
 
     def new
         @listing = Listing.new
