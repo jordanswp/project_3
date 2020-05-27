@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-    before_action :authenticate_user!, :except => [:index, :show]
+    before_action :authenticate_user!, :except => [:index, :show, :search]
 
     def index
         @categories = Category.all
@@ -12,10 +12,7 @@ class ListingsController < ApplicationController
         end
     end
 
-    def search
-        @listings = Listing.where("title ILIKE ?", "%#{params[:q]}%")
-        @query = params[:q]
-    end
+
 
     def new
         @listing = Listing.new
